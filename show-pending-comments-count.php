@@ -1,7 +1,12 @@
 <?php
+/**
+ * @package Show_Pending_Comments_Count
+ * @author Scott Reilly
+ * @version 1.0.1
+ */
 /*
 Plugin Name: Show Pending Comments Count
-Version: 1.0
+Version: 1.0.1
 Plugin URI: http://coffee2code.com/wp-plugins/show-pending-comments-count
 Author: Scott Reilly
 Author URI: http://coffee2code.com
@@ -20,7 +25,7 @@ The pending comments count will appear next to post comment counts on:
 * The "Edit Pages" listing of pages
 * The "Edit Comments" listing of comments
 
-Compatible with WordPress 2.6+, 2.7+, 2.8+.
+Compatible with WordPress 2.6+, 2.7+, 2.8+, 2.9+.
 
 =>> Read the accompanying readme.txt file for more information.  Also, visit the plugin's homepage
 =>> for more information and the latest updates
@@ -28,13 +33,13 @@ Compatible with WordPress 2.6+, 2.7+, 2.8+.
 Installation:
 
 1. Download the file http://coffee2code.com/wp-plugins/show-pending-comments-count.zip and unzip it into your 
-/wp-content/plugins/ directory.
+/wp-content/plugins/ directory (or install via the built-in WordPress plugin installer).
 2. Activate the plugin through the 'Plugins' admin menu in WordPress
 
 */
 
 /*
-Copyright (c) 2009 by Scott Reilly (aka coffee2code)
+Copyright (c) 2009-2010 by Scott Reilly (aka coffee2code)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation 
 files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, 
@@ -55,6 +60,9 @@ class ShowPendingCommentsCount {
 	var $comment_column_width = '5em';	// WP default is 4em, which is not sufficient to display 3 digit comments + 2 digit pending
 	var $separator = ' &bull; ';
 
+	/**
+	 * Class constructor: initializes class variables and adds actions and filters.
+	 */
 	function ShowPendingCommentsCount() {
 		global $pagenow;
 		if ( in_array($pagenow, array('edit.php', 'edit-comments.php', 'edit-pages.php')) ) {
@@ -63,6 +71,9 @@ class ShowPendingCommentsCount {
 		}
 	}
 
+	/**
+	 * Outputs CSS within style tags
+	 */
 	function add_css() {
 		echo <<<CSS
 		<style type="text/css">
@@ -72,6 +83,10 @@ class ShowPendingCommentsCount {
 CSS;
 	}
 
+	/**
+	 * Outputs JavaScript within script tags
+	 *
+	 */
 	function add_js() {
 		echo <<<JS
 		<script type="text/javascript">
