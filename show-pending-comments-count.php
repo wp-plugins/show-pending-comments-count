@@ -2,17 +2,17 @@
 /**
  * @package Show_Pending_Comments_Count
  * @author Scott Reilly
- * @version 1.1
+ * @version 1.2
  */
 /*
 Plugin Name: Show Pending Comments Count
-Version: 1.1
+Version: 1.2
 Plugin URI: http://coffee2code.com/wp-plugins/show-pending-comments-count/
 Author: Scott Reilly
 Author URI: http://coffee2code.com
 Description: Display the pending comments count next to the approved comments count in the admin listing of posts.
 
-Compatible with WordPress 2.6+, 2.7+, 2.8+, 2.9+, 3.0+.
+Compatible with WordPress 2.6+, 2.7+, 2.8+, 2.9+, 3.0+, 3.1+.
 
 =>> Read the accompanying readme.txt file for instructions and documentation.
 =>> Also, visit the plugin's homepage for additional information and updates.
@@ -21,7 +21,7 @@ Compatible with WordPress 2.6+, 2.7+, 2.8+, 2.9+, 3.0+.
 */
 
 /*
-Copyright (c) 2009-2010 by Scott Reilly (aka coffee2code)
+Copyright (c) 2009-2011 by Scott Reilly (aka coffee2code)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
 files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy,
@@ -39,17 +39,17 @@ IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 if ( is_admin() && !class_exists( 'c2c_ShowPendingCommentsCount' ) ) :
 
 class c2c_ShowPendingCommentsCount {
-	var $comment_column_width = '5em';	// WP default is 4em, which is not sufficient to display 3 digit comments + 2 digit pending
-	var $separator = ' &bull; ';
+	private static $comment_column_width = '5em';	// WP default is 4em, which is not sufficient to display 3 digit comments + 2 digit pending
+	private static $separator = ' &bull; ';
 
 	/**
 	 * Class constructor: initializes class variables and adds actions and filters.
 	 */
-	function c2c_ShowPendingCommentsCount() {
+	public static function init() {
 		global $pagenow;
 		if ( in_array( $pagenow, array( 'edit.php', 'edit-comments.php', 'edit-pages.php' ) ) ) {
-			add_action( 'admin_head', array( &$this, 'add_css' ) );
-			add_action( 'admin_print_footer_scripts', array( &$this, 'add_js' ) );
+			add_action( 'admin_head',                 array( __CLASS__, 'add_css' ) );
+			add_action( 'admin_print_footer_scripts', array( __CLASS__, 'add_js' ) );
 		}
 	}
 
@@ -57,9 +57,10 @@ class c2c_ShowPendingCommentsCount {
 	 * Outputs CSS within style tags
 	 */
 	function add_css() {
+		$width = apply_filters( 'c2c_show_pending_comments_count_column_width', self::$comment_column_width );
 		echo <<<CSS
 		<style type="text/css">
-		.fixed .column-comments { width: {$this->comment_column_width}; !important }
+		.fixed .column-comments { width:{$width} !important; }
 		</style>
 
 CSS;
@@ -70,13 +71,14 @@ CSS;
 	 *
 	 */
 	function add_js() {
+		$separator = apply_filters( 'c2c_show_pending_comments_count_separator', self::$separator );
 		echo <<<JS
 		<script type="text/javascript">
 		jQuery(document).ready(function($) {
 			$(".column-comments .post-com-count, .column-response .post-com-count").each(function() {
 				pending = $(this).attr('title').split(' ')[0];
 				if (pending != '0') {
-					$(this).find('span').append("{$this->separator}" + pending);
+					$(this).find('span').append("{$separator}" + pending);
 				}
 			});
 		});
@@ -86,7 +88,7 @@ JS;
 	}
 } // end c2c_ShowPendingCommentsCount
 
-$GLOBALS['c2c_show_pending_comments_count'] = new c2c_ShowPendingCommentsCount();
+c2c_ShowPendingCommentsCount::init();
 
 endif; // end if !class_exists()
 
