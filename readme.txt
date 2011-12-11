@@ -3,9 +3,9 @@ Contributors: coffee2code
 Donate link: http://coffee2code.com/donate
 Tags: pending comments, comments, admin, edit posts, coffee2code
 Requires at least: 2.6
-Tested up to: 3.2
-Stable tag: 1.2.1
-Version: 1.2.1
+Tested up to: 3.3
+Stable tag: 1.2.2
+Version: 1.2.2
 
 Display the pending comments count next to the approved comments count in the admin listing of posts.
 
@@ -24,7 +24,7 @@ The pending comments count will appear next to post comment counts in:
 
 This plugin will only function for users in the admin who have JavaScript enabled.
 
-Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/show-pending-comments-count/) | [Author Homepage](http://coffee2code.com)
+Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/show-pending-comments-count/) | [Plugin Directory Page](http://wordpress.org/extend/plugins/show-pending-comments-count/) | [Author Homepage](http://coffee2code.com)
 
 
 == Installation ==
@@ -75,6 +75,12 @@ function my_c2c_show_pending_comments_count_separator( $separator ) {
 
 == Changelog ==
 
+= 1.2.2 =
+* Add version() to return plugin version
+* Note compatibility through WP 3.3+
+* Add link to plugin directory page to readme.txt
+* Update copyright date (2012)
+
 = 1.2.1 =
 * Note compatibility through WP 3.2+
 * Minor code formatting changes (spacing)
@@ -111,6 +117,9 @@ function my_c2c_show_pending_comments_count_separator( $separator ) {
 
 
 == Upgrade Notice ==
+
+= 1.2.2 =
+Trivial update: noted compatibility through WP 3.3+
 
 = 1.2.1 =
 Trivial update: noted compatibility through WP 3.2+
