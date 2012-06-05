@@ -2,10 +2,12 @@
 Contributors: coffee2code
 Donate link: http://coffee2code.com/donate
 Tags: pending comments, comments, admin, edit posts, coffee2code
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 2.6
-Tested up to: 3.3
-Stable tag: 1.2.2
-Version: 1.2.2
+Tested up to: 3.4
+Stable tag: 1.2.3
+Version: 1.2.3
 
 Display the pending comments count next to the approved comments count in the admin listing of posts.
 
@@ -75,6 +77,13 @@ function my_c2c_show_pending_comments_count_separator( $separator ) {
 
 == Changelog ==
 
+= 1.2.3 =
+* Re-license as GPLv2 or later (from X11)
+* Add 'License' and 'License URI' header tags to readme.txt and plugin file
+* Add banner image for plugin page
+* Remove ending PHP close tag
+* Note compatibility through WP 3.4+
+
 = 1.2.2 =
 * Add version() to return plugin version
 * Note compatibility through WP 3.3+
@@ -117,6 +126,9 @@ function my_c2c_show_pending_comments_count_separator( $separator ) {
 
 
 == Upgrade Notice ==
+
+= 1.2.3 =
+Trivial update: noted compatibility through WP 3.4+; explicitly stated license
 
 = 1.2.2 =
 Trivial update: noted compatibility through WP 3.3+
