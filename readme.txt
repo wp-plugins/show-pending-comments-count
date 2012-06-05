@@ -2,10 +2,12 @@
 Contributors: coffee2code
 Donate link: http://coffee2code.com/donate
 Tags: pending comments, comments, admin, edit posts, coffee2code
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 2.6
-Tested up to: 3.1
-Stable tag: 1.2
-Version: 1.2
+Tested up to: 3.4
+Stable tag: 1.2.3
+Version: 1.2.3
 
 Display the pending comments count next to the approved comments count in the admin listing of posts.
 
@@ -24,7 +26,7 @@ The pending comments count will appear next to post comment counts in:
 
 This plugin will only function for users in the admin who have JavaScript enabled.
 
-Links: [Plugin Homepage]:(http://coffee2code.com/wp-plugins/show-pending-comments-count/) | [Author Homepage]:(http://coffee2code.com)
+Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/show-pending-comments-count/) | [Plugin Directory Page](http://wordpress.org/extend/plugins/show-pending-comments-count/) | [Author Homepage](http://coffee2code.com)
 
 
 == Installation ==
@@ -75,6 +77,24 @@ function my_c2c_show_pending_comments_count_separator( $separator ) {
 
 == Changelog ==
 
+= 1.2.3 =
+* Re-license as GPLv2 or later (from X11)
+* Add 'License' and 'License URI' header tags to readme.txt and plugin file
+* Add banner image for plugin page
+* Remove ending PHP close tag
+* Note compatibility through WP 3.4+
+
+= 1.2.2 =
+* Add version() to return plugin version
+* Note compatibility through WP 3.3+
+* Add link to plugin directory page to readme.txt
+* Update copyright date (2012)
+
+= 1.2.1 =
+* Note compatibility through WP 3.2+
+* Minor code formatting changes (spacing)
+* Fix plugin homepage and author links in description in readme.txt
+
 = 1.2 =
 * Add filter 'c2c_show_pending_comments_count_column_width' to allow customization of the column width used for the comment column
 * Add filter 'c2c_show_pending_comments_count_separator' to allow customization of the character used as the separator between comments and pending comments
@@ -106,6 +126,15 @@ function my_c2c_show_pending_comments_count_separator( $separator ) {
 
 
 == Upgrade Notice ==
+
+= 1.2.3 =
+Trivial update: noted compatibility through WP 3.4+; explicitly stated license
+
+= 1.2.2 =
+Trivial update: noted compatibility through WP 3.3+
+
+= 1.2.1 =
+Trivial update: noted compatibility through WP 3.2+
 
 = 1.2 =
 Minor update: added filters 'c2c_show_pending_comments_count_column_width', and 'c2c_show_pending_comments_count_separator'; implementation changes; noted compatibility with WP 3.1+ and updated copyright date.
