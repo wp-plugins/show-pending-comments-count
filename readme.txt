@@ -135,7 +135,7 @@ function my_c2c_show_pending_comments_count_separator( $separator ) {
 == Upgrade Notice ==
 
 = 1.2.4 =
-Trivial update: noted compatibility through WP 3.3+
+Trivial update: noted compatibility through WP 3.5+
 
 = 1.2.3 =
 Trivial update: noted compatibility through WP 3.4+; explicitly stated license
