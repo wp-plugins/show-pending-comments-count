@@ -2,11 +2,11 @@
 /**
  * @package Show_Pending_Comments_Count
  * @author Scott Reilly
- * @version 1.2.4
+ * @version 1.2.5
  */
 /*
 Plugin Name: Show Pending Comments Count
-Version: 1.2.4
+Version: 1.2.5
 Plugin URI: http://coffee2code.com/wp-plugins/show-pending-comments-count/
 Author: Scott Reilly
 Author URI: http://coffee2code.com/
@@ -14,19 +14,15 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Description: Display the pending comments count next to the approved comments count in the admin listing of posts.
 
-Compatible with WordPress 2.6 through 3.5+.
+Compatible with WordPress 2.6 through 3.8+.
 
 =>> Read the accompanying readme.txt file for instructions and documentation.
 =>> Also, visit the plugin's homepage for additional information and updates.
-=>> Or visit: http://wordpress.org/extend/plugins/show-pending-comments-count/
-
-TODO:
-	* Update screenshot
-
+=>> Or visit: http://wordpress.org/plugins/show-pending-comments-count/
 */
 
 /*
-	Copyright (c) 2009-2013 by Scott Reilly (aka coffee2code)
+	Copyright (c) 2009-2014 by Scott Reilly (aka coffee2code)
 
 	This program is free software; you can redistribute it and/or
 	modify it under the terms of the GNU General Public License
@@ -57,7 +53,7 @@ class c2c_ShowPendingCommentsCount {
 	 * @since 1.2.2
 	 */
 	public static function version() {
-		return '1.2.3';
+		return '1.2.5';
 	}
 
 	/**
