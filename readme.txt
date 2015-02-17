@@ -6,7 +6,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 2.6
 Tested up to: 4.1
-Stable tag: 1.2.6
+Stable tag: 1.2.7
 
 Display the pending comments count next to the approved comments count in the admin listing of posts.
 
@@ -82,6 +82,9 @@ add_filter( 'c2c_show_pending_comments_count_separator', 'my_c2c_show_pending_co
 
 == Changelog ==
 
+= 1.2.7 (2015-02-17) =
+* Explicitly declare functions as public and static
+
 = 1.2.6 (2015-02-17) =
 * Reformat plugin header
 * Note compatibility through WP 4.1+
@@ -154,6 +157,9 @@ add_filter( 'c2c_show_pending_comments_count_separator', 'my_c2c_show_pending_co
 
 
 == Upgrade Notice ==
+
+= 1.2.7 =
+Bugfix: prevent PHP warning by declaring functions public and static
 
 = 1.2.6 =
 Trivial update: noted compatibility through WP 4.1+ and updated copyright date (2015)

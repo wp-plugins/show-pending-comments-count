@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Show Pending Comments Count
- * Version:     1.2.6
+ * Version:     1.2.7
  * Plugin URI:  http://coffee2code.com/wp-plugins/show-pending-comments-count/
  * Author:      Scott Reilly
  * Author URI:  http://coffee2code.com/
@@ -17,7 +17,7 @@
  *
  * @package Show_Pending_Comments_Count
  * @author Scott Reilly
- * @version 1.2.6
+ * @version 1.2.7
  */
 
 /*
@@ -71,7 +71,7 @@ class c2c_ShowPendingCommentsCount {
 	 * @since 1.2.2
 	 */
 	public static function version() {
-		return '1.2.6';
+		return '1.2.7';
 	}
 
 	/**
@@ -88,7 +88,7 @@ class c2c_ShowPendingCommentsCount {
 	/**
 	 * Outputs CSS within style tags.
 	 */
-	function add_css() {
+	public static function add_css() {
 		$width = apply_filters( 'c2c_show_pending_comments_count_column_width', self::$comment_column_width );
 
 		echo <<<PHTML
@@ -102,7 +102,7 @@ PHTML;
 	/**
 	 * Outputs JavaScript within script tags.
 	 */
-	function add_js() {
+	public static function add_js() {
 		$separator = apply_filters( 'c2c_show_pending_comments_count_separator', self::$separator );
 		echo <<<JS
 		<script type="text/javascript">
