@@ -5,8 +5,8 @@ Tags: pending comments, comments, admin, edit posts, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 2.6
-Tested up to: 3.8
-Stable tag: 1.2.5
+Tested up to: 4.1
+Stable tag: 1.2.6
 
 Display the pending comments count next to the approved comments count in the admin listing of posts.
 
@@ -23,7 +23,7 @@ The pending comments count will appear next to post comment counts in:
 
 This plugin will only function for users in the admin who have JavaScript enabled.
 
-Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/show-pending-comments-count/) | [Plugin Directory Page](http://wordpress.org/plugins/show-pending-comments-count/) | [Author Homepage](http://coffee2code.com)
+Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/show-pending-comments-count/) | [Plugin Directory Page](https://wordpress.org/plugins/show-pending-comments-count/) | [Author Homepage](http://coffee2code.com)
 
 
 == Installation ==
@@ -51,11 +51,15 @@ Arguments:
 
 Example:
 
-`<?php add_filter( 'c2c_show_pending_comments_count_column_width', 'my_c2c_show_pending_comments_count_column_width' );
+`
+<?php
 // Make it even wider
 function my_c2c_show_pending_comments_count_column_width( $comment_column_width ) {
 	return '6em';
-} ?>`
+}
+add_filter( 'c2c_show_pending_comments_count_column_width', 'my_c2c_show_pending_comments_count_column_width' );
+?>
+`
 
 = c2c_show_pending_comments_count_separator =
 
@@ -65,14 +69,26 @@ Arguments:
 
 * $separator (string): The character or string to be used as the separator. By default this is ' &bull; ' (note space of either side).
 
-`<?php add_filter( 'c2c_show_pending_comments_count_separator', 'my_c2c_show_pending_comments_count_separator' );
+`
+<?php
 // Make it even wider
 function my_c2c_show_pending_comments_count_separator( $separator ) {
 	return ' | ';
-} ?>`
+}
+add_filter( 'c2c_show_pending_comments_count_separator', 'my_c2c_show_pending_comments_count_separator' );
+?>
+`
 
 
 == Changelog ==
+
+= 1.2.6 (2015-02-17) =
+* Reformat plugin header
+* Note compatibility through WP 4.1+
+* Change documentation links to wp.org to be https
+* Minor documentation spacing changes throughout
+* Update copyright date (2015)
+* Add plugin icon
 
 = 1.2.5 (2013-12-19) =
 * Note compatibility through WP 3.8+
@@ -138,6 +154,9 @@ function my_c2c_show_pending_comments_count_separator( $separator ) {
 
 
 == Upgrade Notice ==
+
+= 1.2.6 =
+Trivial update: noted compatibility through WP 4.1+ and updated copyright date (2015)
 
 = 1.2.5 =
 Trivial update: noted compatibility through WP 3.8+

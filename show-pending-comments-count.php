@@ -1,28 +1,27 @@
 <?php
 /**
+ * Plugin Name: Show Pending Comments Count
+ * Version:     1.2.6
+ * Plugin URI:  http://coffee2code.com/wp-plugins/show-pending-comments-count/
+ * Author:      Scott Reilly
+ * Author URI:  http://coffee2code.com/
+ * License:     GPLv2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Description: Display the pending comments count next to the approved comments count in the admin listing of posts.
+ *
+ * Compatible with WordPress 2.6 through 4.1+.
+ *
+ * =>> Read the accompanying readme.txt file for instructions and documentation.
+ * =>> Also, visit the plugin's homepage for additional information and updates.
+ * =>> Or visit: https://wordpress.org/plugins/show-pending-comments-count/
+ *
  * @package Show_Pending_Comments_Count
  * @author Scott Reilly
- * @version 1.2.5
+ * @version 1.2.6
  */
-/*
-Plugin Name: Show Pending Comments Count
-Version: 1.2.5
-Plugin URI: http://coffee2code.com/wp-plugins/show-pending-comments-count/
-Author: Scott Reilly
-Author URI: http://coffee2code.com/
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Description: Display the pending comments count next to the approved comments count in the admin listing of posts.
-
-Compatible with WordPress 2.6 through 3.8+.
-
-=>> Read the accompanying readme.txt file for instructions and documentation.
-=>> Also, visit the plugin's homepage for additional information and updates.
-=>> Or visit: http://wordpress.org/plugins/show-pending-comments-count/
-*/
 
 /*
-	Copyright (c) 2009-2014 by Scott Reilly (aka coffee2code)
+	Copyright (c) 2009-2015 by Scott Reilly (aka coffee2code)
 
 	This program is free software; you can redistribute it and/or
 	modify it under the terms of the GNU General Public License
@@ -44,7 +43,26 @@ defined( 'ABSPATH' ) or die();
 if ( is_admin() && ! class_exists( 'c2c_ShowPendingCommentsCount' ) ) :
 
 class c2c_ShowPendingCommentsCount {
-	private static $comment_column_width = '5em';	// WP default is 4em, which is not sufficient to display 3 digit comments + 2 digit pending
+
+	/**
+	 * Width for comment column.
+	 *
+	 * WP default is 4em, which is not sufficient to display 3 digit comments plus
+	 * a 2 digit pending count.
+	 *
+	 * Customizable elsewhere via 'c2c_show_pending_comments_count_separator' filter.
+	 *
+	 * @var string
+	 */
+	private static $comment_column_width = '5em';
+
+	/**
+	 * String to use as separator between comment count ad pending comment count.
+	 *
+	 * Customizable elsewhere via 'c2c_show_pending_comments_count_column_width' filter.
+	 *
+	 * @var string
+	 */
 	private static $separator = ' &bull; ';
 
 	/**
@@ -53,7 +71,7 @@ class c2c_ShowPendingCommentsCount {
 	 * @since 1.2.2
 	 */
 	public static function version() {
-		return '1.2.5';
+		return '1.2.6';
 	}
 
 	/**
@@ -68,7 +86,7 @@ class c2c_ShowPendingCommentsCount {
 	}
 
 	/**
-	 * Outputs CSS within style tags
+	 * Outputs CSS within style tags.
 	 */
 	function add_css() {
 		$width = apply_filters( 'c2c_show_pending_comments_count_column_width', self::$comment_column_width );
@@ -82,8 +100,7 @@ PHTML;
 	}
 
 	/**
-	 * Outputs JavaScript within script tags
-	 *
+	 * Outputs JavaScript within script tags.
 	 */
 	function add_js() {
 		$separator = apply_filters( 'c2c_show_pending_comments_count_separator', self::$separator );
