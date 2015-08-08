@@ -5,13 +5,17 @@ Tags: pending comments, comments, admin, edit posts, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 2.6
-Tested up to: 4.1
-Stable tag: 1.2.7
+Tested up to: 4.2
+Stable tag: 1.3
 
 Display the pending comments count next to the approved comments count in the admin listing of posts.
 
 
 == Description ==
+
+**NOTE: This plugin is deprecated as of WordPress 4.3, which now includes a display of the count of pending comments alongside the regular count of comments. And it does so in a more aesthetically pleasing fashion than this plugin ever did, so if you are using WP 4.3 or later, there's no need to use this plugin. In fact, it won't do anything for you if you try to use it. The plugin is still fully functional for WP 4.2 and earlier.**
+
+---
 
 By default, in the admin listing of posts, each post has its count of approved comments displayed within a word bubble. If you hover over a comment count, the tooltip hover text indicates the number of pending comments. This plugin utilizes JavaScript to change the post listings so that the pending comments count is displayed next to the approved comments count inside the same word bubble (though with a separator).
 
@@ -81,6 +85,12 @@ add_filter( 'c2c_show_pending_comments_count_separator', 'my_c2c_show_pending_co
 
 
 == Changelog ==
+
+= 1.3 (2015-08-07) =
+* Announce:: Deprecate plugin as of WP 4.3, which now shows a pending comment count in a more aesthetic fashion
+* Add: Prevent the plugin from doing anything if activated for WP 4.3 or later
+* Change: Modify JS to be tolerant of comment links lacking expected 'title' attribute (i.e. WP 4.3; though it is prevented from running for WP 4.3+ anyhow)
+* Update: Note compatibility through WP 4.2+
 
 = 1.2.7 (2015-02-17) =
 * Explicitly declare functions as public and static
@@ -157,6 +167,9 @@ add_filter( 'c2c_show_pending_comments_count_separator', 'my_c2c_show_pending_co
 
 
 == Upgrade Notice ==
+
+= 1.3 =
+Final update: deprecated plugin for WordPress 4.3 and later since the functionality is now built into WordPress itself; noted compatibility through WP 4.2+
 
 = 1.2.7 =
 Bugfix: prevent PHP warning by declaring functions public and static
