@@ -1,32 +1,33 @@
 === Show Pending Comments Count ===
 Contributors: coffee2code
-Donate link: http://coffee2code.com/donate
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6ARCFJ9TX3522
 Tags: pending comments, comments, admin, edit posts, coffee2code
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 2.6
-Tested up to: 3.4
-Stable tag: 1.2.3
-Version: 1.2.3
+Tested up to: 4.2
+Stable tag: 1.3
 
 Display the pending comments count next to the approved comments count in the admin listing of posts.
 
 
 == Description ==
 
-Display the pending comments count next to the approved comments count in the admin listing of posts.
+**NOTE: This plugin is deprecated as of WordPress 4.3, which now includes a display of the count of pending comments alongside the regular count of comments. And it does so in a more aesthetically pleasing fashion than this plugin ever did, so if you are using WP 4.3 or later, there's no need to use this plugin. In fact, it won't do anything for you if you try to use it. The plugin is still fully functional for WP 4.2 and earlier.**
 
-By default, in the admin listing of posts, each post has its count of approved comments displayed with a word bubble background.  If you hover over a comment count, the tooltip hover text indicates the number of pending comments.  This plugin utilizes JavaScript to change the post listings so that the pending comments count is displayed next to the approved comments count inside the same word bubble (though with a separator).
+---
+
+By default, in the admin listing of posts, each post has its count of approved comments displayed within a word bubble. If you hover over a comment count, the tooltip hover text indicates the number of pending comments. This plugin utilizes JavaScript to change the post listings so that the pending comments count is displayed next to the approved comments count inside the same word bubble (though with a separator).
 
 The pending comments count will appear next to post comment counts in:
 
-* The "Edit Posts" listing of posts
-* The "Edit Pages" listing of pages
-* The "Edit Comments" listing of comments
+* The "Posts" listing of posts (formerly called "Edit Posts")
+* The "Pages" listing of pages (formerly called "Edit Pages")
+* The "Comments" listing of comments (formerly called "Edit Comments")
 
 This plugin will only function for users in the admin who have JavaScript enabled.
 
-Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/show-pending-comments-count/) | [Plugin Directory Page](http://wordpress.org/extend/plugins/show-pending-comments-count/) | [Author Homepage](http://coffee2code.com)
+Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/show-pending-comments-count/) | [Plugin Directory Page](https://wordpress.org/plugins/show-pending-comments-count/) | [Author Homepage](http://coffee2code.com)
 
 
 == Installation ==
@@ -37,7 +38,7 @@ Links: [Plugin Homepage](http://coffee2code.com/wp-plugins/show-pending-comments
 
 == Screenshots ==
 
-1. A screenshot of the 'Edit Posts' admin page with the plugin active, showing a post without pending comments and one with pending comments.
+1. A screenshot of the 'Posts' admin page with the plugin active. The topmost post clearly indicates 2 approved comments and 1 comment pending. The second post has 2 approved comments with none pending. The third post has 37 approved comments and 1 comment pending.
 
 
 == Filters ==
@@ -46,7 +47,7 @@ The plugin is further customizable via two filters. Typically, these customizati
 
 = c2c_show_pending_comments_count_column_width =
 
-The 'c2c_show_pending_comments_count_column_width' filter allows you to customize the column width used for the comment column when pending comments are also being displayed.  The WP default is "4em", which is not sufficient to display a possible 3 digits for approved comments in addition to a possible 2 digits in pending comments.  The default defined by the plugin is "5em" which should handle most cases sufficiently.  Use the filter if you want to change the width.
+The 'c2c_show_pending_comments_count_column_width' filter allows you to customize the column width used for the comment column when pending comments are also being displayed. The WP default is "4em", which is not sufficient to display a possible 3 digits for approved comments in addition to a possible 2 digits in pending comments. The default defined by the plugin is "5em" which should handle most cases sufficiently. Use the filter if you want to change the width.
 
 Arguments:
 
@@ -54,11 +55,15 @@ Arguments:
 
 Example:
 
-`<?php add_filter( 'c2c_show_pending_comments_count_column_width', 'my_c2c_show_pending_comments_count_column_width' );
+`
+<?php
 // Make it even wider
 function my_c2c_show_pending_comments_count_column_width( $comment_column_width ) {
 	return '6em';
-} ?>`
+}
+add_filter( 'c2c_show_pending_comments_count_column_width', 'my_c2c_show_pending_comments_count_column_width' );
+?>
+`
 
 = c2c_show_pending_comments_count_separator =
 
@@ -66,16 +71,52 @@ The 'c2c_show_pending_comments_count_separator' filter allows you to specify the
 
 Arguments:
 
-* $separator (string): The character or string to be used as the separator.  By default this is ' &bull; ' (note space of either side).
+* $separator (string): The character or string to be used as the separator. By default this is ' &bull; ' (note space of either side).
 
-`<?php add_filter( 'c2c_show_pending_comments_count_separator', 'my_c2c_show_pending_comments_count_separator' );
+`
+<?php
 // Make it even wider
 function my_c2c_show_pending_comments_count_separator( $separator ) {
 	return ' | ';
-} ?>`
+}
+add_filter( 'c2c_show_pending_comments_count_separator', 'my_c2c_show_pending_comments_count_separator' );
+?>
+`
 
 
 == Changelog ==
+
+= 1.3 (2015-08-07) =
+* Announce:: Deprecate plugin as of WP 4.3, which now shows a pending comment count in a more aesthetic fashion
+* Add: Prevent the plugin from doing anything if activated for WP 4.3 or later
+* Change: Modify JS to be tolerant of comment links lacking expected 'title' attribute (i.e. WP 4.3; though it is prevented from running for WP 4.3+ anyhow)
+* Update: Note compatibility through WP 4.2+
+
+= 1.2.7 (2015-02-17) =
+* Explicitly declare functions as public and static
+
+= 1.2.6 (2015-02-17) =
+* Reformat plugin header
+* Note compatibility through WP 4.1+
+* Change documentation links to wp.org to be https
+* Minor documentation spacing changes throughout
+* Update copyright date (2015)
+* Add plugin icon
+
+= 1.2.5 (2013-12-19) =
+* Note compatibility through WP 3.8+
+* Update copyright date (2014)
+* Minor documentation tweaks
+* Change donate link
+* Update banner image for WP 3.8 admin refresh
+* Update screenshot for WP 3.8 admin refresh
+
+= 1.2.4 =
+* Add check to prevent execution of code if file is directly accessed
+* Note compatibility through WP 3.5+
+* Update copyright date (2013)
+* Minor code reformatting (spacing)
+* Move screenshot into repo's assets directory
 
 = 1.2.3 =
 * Re-license as GPLv2 or later (from X11)
@@ -126,6 +167,21 @@ function my_c2c_show_pending_comments_count_separator( $separator ) {
 
 
 == Upgrade Notice ==
+
+= 1.3 =
+Final update: deprecated plugin for WordPress 4.3 and later since the functionality is now built into WordPress itself; noted compatibility through WP 4.2+
+
+= 1.2.7 =
+Bugfix: prevent PHP warning by declaring functions public and static
+
+= 1.2.6 =
+Trivial update: noted compatibility through WP 4.1+ and updated copyright date (2015)
+
+= 1.2.5 =
+Trivial update: noted compatibility through WP 3.8+
+
+= 1.2.4 =
+Trivial update: noted compatibility through WP 3.5+
 
 = 1.2.3 =
 Trivial update: noted compatibility through WP 3.4+; explicitly stated license
